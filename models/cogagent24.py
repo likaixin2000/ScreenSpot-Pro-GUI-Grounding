@@ -49,10 +49,10 @@ class CogAgent24Model():
         
         # Prepare query
         history_str = "\nHistory steps: "
-        platform_str = "WIN"
-        query = f"Task: {instruction}{history_str}\n{platform_str}{self.format_str}"
-
-        
+        platform_str = "(Platform: WIN)\n" # "(Platform: Mac)\n" 根据使用的子集变化
+        format_str = "(Answer in Action-Operation format.)\n"
+        query = f"Task: {instruction}{history_str}\n{platform_str}{format_str}"
+                
         inputs = self.tokenizer.apply_chat_template(
             [{"role": "user", "image": image, "content": query}],
             add_generation_prompt=True,
