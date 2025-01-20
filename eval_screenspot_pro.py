@@ -463,6 +463,9 @@ def main(args):
         img_path = os.path.join(args.screenspot_imgs, filename)
 
         if task_instance["gt_type"] == "positive":
+            if args.model_type == "cogagent24":
+                response = model.ground_only_positive(instruction=sample["prompt_to_evaluate"], image=img_path, platform = sample["platform"])
+            else:
             response = model.ground_only_positive(instruction=sample["prompt_to_evaluate"], image=img_path)
         elif task_instance["gt_type"] == "negative":
             response = model.ground_allow_negative(instruction=sample["prompt_to_evaluate"], image=img_path)
