@@ -49,7 +49,7 @@ class CogAgent24Model():
         
         # Prepare query
         history_str = "\nHistory steps: "
-        platform_str = "(Platform: WIN)\n" # "(Platform: Mac)\n" 根据使用的子集变化
+        platform_str = "(Platform: Win)\n" # "(Platform: Mac)\n" 根据使用的子集变化
         format_str = "(Answer in Action-Operation format.)\n"
         query = f"Task: {instruction}{history_str}\n{platform_str}{format_str}"
                 
