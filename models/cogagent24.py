@@ -39,7 +39,7 @@ class CogAgent24Model():
         self.override_generation_config.update(kwargs)
         self.model.generation_config = GenerationConfig(**self.override_generation_config)
 
-    def ground_only_positive(self, instruction, image):
+    def ground_only_positive(self, instruction, image, platform):
         if isinstance(image, str):
             image_path = image
             assert os.path.exists(image_path) and os.path.isfile(image_path), "Invalid input image path."
@@ -49,9 +49,9 @@ class CogAgent24Model():
         
         # Prepare query
         history_str = "\nHistory steps: "
-        platform_str = "(Platform: Win)\n" # "(Platform: Mac)\n" 根据使用的子集变化
+        platform_str = "(Platform: Win)\n" if platform == "windows" else  "(Platform: Mac)\n" 根据使用的子集变化
         format_str = "(Answer in Action-Operation format.)\n"
-        query = f"Task: {instruction}{history_str}\n{platform_str}{format_str}"
+        query = f"Task: {instruction}[continue]{history_str}\n{platform_str}{format_str}"
                 
         inputs = self.tokenizer.apply_chat_template(
             [{"role": "user", "image": image, "content": query}],
