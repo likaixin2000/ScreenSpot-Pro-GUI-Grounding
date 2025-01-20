@@ -1,8 +1,8 @@
 # ScreenSpot-Pro: GUI Grounding for Professional High-Resolution Computer Use
-![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square)
-[![Research Paper](https://img.shields.io/badge/Paper-brightgreen.svg?style=flat-square)](https://arxiv.org/abs/2404.09486)
-[![Huggingface Dataset](https://img.shields.io/badge/Dataset-blue.svg?style=flat-square)](https://huggingface.co/datasets/likaixin/ScreenSpot-Pro)
-
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg?style=for-the-badge)
+[![Research Paper](https://img.shields.io/badge/Paper-brightgreen.svg?style=for-the-badge)](https://likaixin2000.github.io/papers/ScreenSpot_Pro.pdf)
+[![Huggingface Dataset](https://img.shields.io/badge/Dataset-blue.svg?style=for-the-badge)](https://huggingface.co/datasets/likaixin/ScreenSpot-Pro)
+[![Leaderboard](https://img.shields.io/badge/Leaderboard-8A2BE2?style=for-the-badge)](https://gui-agent.github.io/grounding-leaderboard)
 ## Set Up
 
 Before you begin, ensure your environment variables are set:
