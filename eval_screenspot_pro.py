@@ -480,6 +480,7 @@ def main(args):
         point_in_pixel = [point[0] * img_size[0], point[1] * img_size[1]] if point else None
         
         sample_result = {
+            "id": sample["id"],
             "img_path": img_path, 
             "group": sample["group"] if "group" in sample else None,
             "platform": sample["platform"],
