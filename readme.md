@@ -9,7 +9,7 @@
 
 (Feb 21, 2025) We’re excited to see our work acknowledged and used as a benchmark in several great projects: [Omniparser v2](https://www.microsoft.com/en-us/research/articles/omniparser-v2-turning-any-llm-into-a-computer-use-agent/), [Qwen2.5-VL](https://arxiv.org/pdf/2502.13923), [UI-TARS](https://arxiv.org/pdf/2501.12326), [UGround](https://x.com/ysu_nlp/status/1882618596863717879), [AGUVIS](https://github.com/likaixin2000/ScreenSpot-Pro-GUI-Grounding/issues/2), ...
 
-(Jan 4, 2025) The paper and dataset are released.
+(Jan 4, 2025) The paper and dataset are released. Please also check out [ScreenSpot-v2-variants](https://huggingface.co/datasets/likaixin/ScreenSpot-v2-variants) which contains more instruction styles (original instruction, action, target UI description, and negative instructions).
 
 ## Set Up
 
