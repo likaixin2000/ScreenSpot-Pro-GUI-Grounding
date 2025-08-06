@@ -78,14 +78,32 @@ def build_model(args):
         model = CogAgent24Model()
         model.load_model()
 
+    # Methods
     elif model_type == "screenseeker":
-        from models.seeclick_pro import SeeClickProAgent
+        from models.methods.screenseeker import ScreenSeekeRMethod
         from models.osatlas7b import OSAtlas7BVLLMModel
         grounder = OSAtlas7BVLLMModel()
         grounder.load_model()
-        model = SeeClickProAgent(grounder=grounder)
+        model = ScreenSeekeRMethod(planner="gpt-4o-2024-05-13", grounder=grounder)
+    elif model_type == "reground":
+        from models.methods.reground import ReGroundMethod
+        from models.osatlas7b import OSAtlas7BVLLMModel
+        grounder = OSAtlas7BVLLMModel()
+        grounder.load_model()
+        model = ReGroundMethod(grounder=grounder)
+    elif model_type == "iterative_narrowing":
+        from models.methods.iterative_narrowing import IterativeNarrowingMethod
+        from models.osatlas7b import OSAtlas7BVLLMModel
+        grounder = OSAtlas7BVLLMModel()
+        grounder.load_model()
+        model = IterativeNarrowingMethod(grounder=grounder)
+    elif model_type == "iterative_focusing":
+        from models.methods.iterative_focusing import IterativeFocusingMethod
+        from models.osatlas7b import OSAtlas7BVLLMModel
+        grounder = OSAtlas7BVLLMModel()
+        grounder.load_model()
+        model = IterativeFocusingMethod(grounder=grounder)
     else:
         raise ValueError(f"Unsupported model type {model_type}.")
     model.set_generation_config(temperature=0, max_new_tokens=256)
     return model
-    
