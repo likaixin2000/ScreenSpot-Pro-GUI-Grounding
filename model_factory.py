@@ -30,6 +30,13 @@ def build_model(args):
             model.load_model(model_name_or_path=model_name_or_path)
         else:
             model.load_model()
+    elif model_type == "holo1_5":
+        from models.holo1_5 import Holo1_5Model
+        model = Holo1_5Model()
+        if args.model_name_or_path:
+            model.load_model(model_name_or_path=model_name_or_path)
+        else:
+            model.load_model()
             
     elif model_type == "minicpmv":
         from models.minicpmv import MiniCPMVModel
