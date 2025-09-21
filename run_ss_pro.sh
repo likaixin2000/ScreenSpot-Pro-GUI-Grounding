@@ -33,3 +33,20 @@ do
         --log_path "./results/${ckpt}.json" \
         --inst_style "instruction"
 done
+
+
+# GPT-5
+ckpts=("gpt-5-2025-08-07")
+for ckpt in "${ckpts[@]}"
+do
+    python eval_screenspot_pro_parallel.py  \
+        --model_type "gpt5"  \
+        --model_name_or_path ${ckpt}  \
+        --screenspot_imgs "../data/ScreenSpot-Pro/images"  \
+        --screenspot_test "../data/ScreenSpot-Pro/annotations"  \
+        --task "all" \
+        --language "en" \
+        --gt_type "positive" \
+        --log_path "./results/${ckpt}.json" \
+        --inst_style "instruction"  
+done
