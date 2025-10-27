@@ -71,10 +71,11 @@ class MiniCPMVModel():
         # print("------")
         # Try getting groundings
         bbox = extract_first_bounding_box(response)
-        click_point = extract_first_point(response)
-        
-        if not click_point and bbox:
+        if bbox:
             click_point = [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2]
+        else:
+            # Try matching a point
+            click_point = extract_first_point(response)
 
         result_dict = {
             "result": "positive",
@@ -87,7 +88,7 @@ class MiniCPMVModel():
 
 
 def extract_first_bounding_box(text):
-    # Regular expression pattern to match the first bounding box in the format [[x0,y0,x1,y1]]
+    # Regular expression pattern to match the first bounding box in the format <box>x0 y0 x1 y1</box>
     pattern = r"<box>(\d+) (\d+) (\d+) (\d+)</box>"
     
     # Search for the first match in the text with the DOTALL flag to support multi-line text
@@ -101,7 +102,7 @@ def extract_first_bounding_box(text):
 
 
 def extract_first_point(text):
-    # Regular expression pattern to match the first bounding box in the format [[x0,y0,x1,y1]]
+    # Regular expression pattern to match the first point
     pattern = r"(\d+) (\d+)"
     
     # Search for the first match in the text with the DOTALL flag to support multi-line text
